@@ -8,7 +8,7 @@ function getComputerChoice(){
 
 console.log(getComputerChoice())
 
-function playRockPeperScissors(playerSelection, computerSelection){
+function playRound(playerSelection, computerSelection){
     let resultMsg = '';
     let result = '';
     let playerChoice = playerSelection.toLowerCase();
@@ -46,17 +46,30 @@ function playRockPeperScissors(playerSelection, computerSelection){
         resultMsg =  `You lose by choosing ${playerChoice} against ${computerChoice}!`;
     }
 
-    return resultMsg;
+    console.log(resultMsg);
+    return result;
 }
 
-console.log(playRockPeperScissors('rock','paper'))
-console.log(playRockPeperScissors('rock','Scissors'))
-console.log(playRockPeperScissors('rock','Rock'))
+function game(){
+    let winRecord = 0;
+    let loseRecord = 0;
 
-console.log(playRockPeperScissors('paper','paper'))
-console.log(playRockPeperScissors('paper','Scissors'))
-console.log(playRockPeperScissors('paper','Rock'))
+    for( let i = 0; i < 5; i++){
+        let choice = prompt('Please choose between Rock, Paper and Scissors')
+        let result = playRound(choice, getComputerChoice());
 
-console.log(playRockPeperScissors('ScissorS','paper'))
-console.log(playRockPeperScissors('ScissorS','Scissors'))
-console.log(playRockPeperScissors('ScissorS','Rock'))
+        if(result == 'win')
+            winRecord++;
+        else if (result == 'lose')
+            loseRecord++;
+    }
+
+    if (winRecord > loseRecord)
+        console.log(`You win with a score of ${winRecord} against ${loseRecord}`);
+    else if (loseRecord > winRecord)
+        console.log(`You lose with a score of ${winRecord} against ${loseRecord}`);
+    else if (loseRecord == winRecord)
+        console.log(`It's a tie with a score of ${winRecord} against ${loseRecord}`)
+}
+
+game();
