@@ -1,22 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+
     <title>Jack en Poy</title>
 </head>
+
 <body>
-    <script src="script.js"></script>
-    <h1>Jack N Poy!</h1>
-    <div>
-        Score: 
-        <br>
-        Round:
-        <br>
+    <div class="gamecontainer">
+        <div class="titlecard">
+            <h1>Jack N Poy!</h1>
+        </div>
+
+        <div class="scoreholder">
+            <div class="scorecard">Score: </div>
+
+            <div class="roundnum">Round: </div>
+        </div>
+        <div class="gamemsg">
+            <div class="vs-message">Something vs Something</div>
+            <div class="who-won">X wins over Y</div>
+        </div>
+
+        <div class="cardholder">
+            <div class="card" id="rock">Rock</div>
+            <div class="card" id="paper">Paper</div>
+            <div class="card" id="scissors">Scissors</div>
+        </div>
     </div>
-    <button class="rock">Rock</button>
-    <button class="paper">Paper</button>
-    <button class="scissors">Scissors</button>
+    <script src="script.js"></script>
+
 </body>
+
 </html>

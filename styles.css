@@ -1,0 +1,64 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.gamecontainer {
+    display:flex;
+    flex-direction: column;
+    margin:128px;
+    min-width: 400px;
+    justify-content: center;
+     
+}
+
+.titlecard {
+    display:flex;
+    justify-content: center;
+    padding:32px;
+}
+
+.scoreholder{
+    display: flex;
+
+    justify-content: space-between;
+    margin:8px;
+    padding:8px;
+}
+
+.roundnum {
+    margin-right:32px;
+}
+
+.gamemsg{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    padding:24px;
+}
+
+.vs-message, .who-won {
+    padding:8px;
+}
+
+.cardholder {
+    display: flex;
+    justify-content: space-evenly;
+    border: solid black 1px;
+    padding: 32px;
+}
+
+.card {
+    display:flex;
+    padding:8px;
+    border: solid black 1px;
+    min-width:80px;
+    border-radius: 8px;
+}
+
+div {
+    border: solid gray 1px;
+
+}
