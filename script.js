@@ -55,8 +55,9 @@ function game(){
     let loseRecord = 0;
 
     for( let i = 0; i < 5; i++){
-        let choice = prompt('Please choose between Rock, Paper and Scissors')
-        let result = playRound(choice, getComputerChoice());
+        //let choice = prompt('Please choose between Rock, Paper and Scissors')
+        let choice = 'rock'
+        //let result = playRound(choice, getComputerChoice())        
 
         if(result == 'win')
             winRecord++;
