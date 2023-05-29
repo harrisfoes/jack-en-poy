@@ -48,17 +48,17 @@ function playRound(playerSelection, computerSelection) {
     }
 
     if (result == 'tie') {
-        resultMsg = `It's a tie between ${playerChoice} and ${computerChoice}!`;
+        resultMsg = `It's a tie between <b>${playerChoice}</b> and <b>${computerChoice}</b>!`;
     }
     else if (result == 'win') {
-        resultMsg = `You win by choosing ${playerChoice} against <b>${computerChoice}!`;
+        resultMsg = `You win by choosing <b>${playerChoice}</b> against <b>${computerChoice}</b>!`;
     }
     else if (result == 'lose') {
-        resultMsg = `You lose by choosing ${playerChoice} against ${computerChoice}!`;
+        resultMsg = `You lose by choosing <b>${playerChoice}</b> against <b>${computerChoice}</b>!`;
     }
 
     //console.log(resultMsg);
-    result_div.textContent = resultMsg;
+    result_div.innerHTML = resultMsg;
     return result;
 }
 
@@ -69,14 +69,14 @@ function checkGame(){
     if (winRecord == 5 || loseRecord == 5){
         console.log("dito")
         if (winRecord > loseRecord)
-            who_won_div.textContent = `You win with a score of ${winRecord} against ${loseRecord}`;
+            who_won_div.innerHTML = `You <b>win</b> with a score of ${winRecord} against ${loseRecord}`;
         else if (loseRecord > winRecord)
-            who_won_div.textContent = `You lose with a score of ${winRecord} against ${loseRecord}`;
+            who_won_div.innerHTML = `You <b>lose</b> with a score of ${winRecord} against ${loseRecord}`;
 
         //reset for next game
         winRecord = 0;
         loseRecord = 0;
-        result_div.textContent = "Press another button to play again";
+        result_div.innerHTML = "<h3>Press buttons to play again!</h3>";
         scorediv.textContent = 'Player Score:' + winRecord;
         cpudiv.textContent = 'Computer Score:' + loseRecord;
     }
