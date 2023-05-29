@@ -1,4 +1,11 @@
-console.log("Hello world!");
+let result_div = document.querySelector(".vs-message");
+let who_won_div = document.querySelector(".who-won");
+let winRecord = 0;
+let loseRecord = 0;
+let playerChoice = ''
+let scorediv = document.querySelector(".playerscore");
+let cpudiv = document.querySelector(".computerscore");
+const jackenpoyButtons = document.querySelectorAll('.card');
 
 function getComputerChoice() {
     let myChoice = ['Rock', 'Paper', 'Scissors'];
@@ -6,7 +13,11 @@ function getComputerChoice() {
 
 }
 
-console.log(getComputerChoice())
+function getRandomInspirationalMessage() {
+    let myChoice = ['You can do it!', 'I believe in you!', 'Trust your instinct!'];
+    return myChoice[Math.floor(Math.random() * 3)];
+
+}
 
 function playRound(playerSelection, computerSelection) {
     let resultMsg = '';
@@ -40,24 +51,39 @@ function playRound(playerSelection, computerSelection) {
         resultMsg = `It's a tie between ${playerChoice} and ${computerChoice}!`;
     }
     else if (result == 'win') {
-        resultMsg = `You win by choosing ${playerChoice} against ${computerChoice}!`;
+        resultMsg = `You win by choosing ${playerChoice} against <b>${computerChoice}!`;
     }
     else if (result == 'lose') {
         resultMsg = `You lose by choosing ${playerChoice} against ${computerChoice}!`;
     }
 
-    console.log(resultMsg);
+    //console.log(resultMsg);
+    result_div.textContent = resultMsg;
     return result;
 }
 
+function checkGame(){
+    console.log("text");
+    console.log(winRecord);
+    console.log(loseRecord);
+    if (winRecord == 5 || loseRecord == 5){
+        console.log("dito")
+        if (winRecord > loseRecord)
+            who_won_div.textContent = `You win with a score of ${winRecord} against ${loseRecord}`;
+        else if (loseRecord > winRecord)
+            who_won_div.textContent = `You lose with a score of ${winRecord} against ${loseRecord}`;
+
+        //reset for next game
+        winRecord = 0;
+        loseRecord = 0;
+        result_div.textContent = "Press another button to play again";
+        scorediv.textContent = 'Player Score:' + winRecord;
+        cpudiv.textContent = 'Computer Score:' + loseRecord;
+    }
+}
+
 function game() {
-    let winRecord = 0;
-    let loseRecord = 0;
 
-
-    let playerChoice = ''
-
-    const jackenpoyButtons = document.querySelectorAll('.card');
     jackenpoyButtons.forEach((button) => {
 
         button.addEventListener('click', () => {
@@ -69,25 +95,20 @@ function game() {
     
             if (result == 'win') {
                 winRecord++;
-                scorediv = document.querySelector(".scorecard");
-                scorediv.textContent = 'Score:' + winRecord;
+                scorediv.textContent = 'Player Score:' + winRecord;
             }
-            else if (result == 'lose')
+            else if (result == 'lose'){
                 loseRecord++;
+                cpudiv.textContent = 'Computer Score:' + loseRecord;
+            }
+
+            who_won_div.textContent = getRandomInspirationalMessage();
+
+            checkGame();
 
         });
 
     });
-
-
-
-
-    if (winRecord > loseRecord)
-        console.log(`You win with a score of ${winRecord} against ${loseRecord}`);
-    else if (loseRecord > winRecord)
-        console.log(`You lose with a score of ${winRecord} against ${loseRecord}`);
-    else if (loseRecord == winRecord)
-        console.log(`It's a tie with a score of ${winRecord} against ${loseRecord}`)
 }
 
 game();
