@@ -62,11 +62,11 @@ function playRound(playerSelection, computerSelection) {
     return result;
 }
 
-function checkGame(){
+function checkGame() {
     console.log("text");
     console.log(winRecord);
     console.log(loseRecord);
-    if (winRecord == 5 || loseRecord == 5){
+    if (winRecord == 5 || loseRecord == 5) {
         console.log("dito")
         if (winRecord > loseRecord)
             who_won_div.innerHTML = `You <b>win</b> with a score of ${winRecord} against ${loseRecord}`;
@@ -92,12 +92,12 @@ function game() {
 
             let result = playRound(playerChoice, getComputerChoice())
             console.log(playerChoice);
-    
+
             if (result == 'win') {
                 winRecord++;
                 scorediv.textContent = 'Player Score:' + winRecord;
             }
-            else if (result == 'lose'){
+            else if (result == 'lose') {
                 loseRecord++;
                 cpudiv.textContent = 'Computer Score:' + loseRecord;
             }
