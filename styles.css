@@ -84,6 +84,12 @@ footer {
     font-size:12px;
 }
 
+.card:hover{
+    transform: scale(1.1);
+    border: 1px solid goldenrod;
+}
+
+
 /*
 div {
     //border: solid gray 1px;
