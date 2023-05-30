@@ -76,7 +76,7 @@ function checkGame() {
         //reset for next game
         winRecord = 0;
         loseRecord = 0;
-        result_div.innerHTML = "<h3>Press buttons to play again!</h3>";
+        result_div.innerHTML = "<b>Press buttons to play again!</b>";
         scorediv.textContent = 'Player Score:' + winRecord;
         cpudiv.textContent = 'Computer Score:' + loseRecord;
     }
